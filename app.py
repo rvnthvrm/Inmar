@@ -4,8 +4,9 @@ from flask_restful import Api, Resource
 from flask_sqlalchemy import SQLAlchemy
 
 
+DB_FILE = "/tmp/sku.db"
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////tmp/sku.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///{}".format(DB_FILE)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
